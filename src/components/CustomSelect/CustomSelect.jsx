@@ -9,7 +9,9 @@ const optionsData = [
   { id: '5', label: 'Option 5' },
   { id: '6', label: 'Option 6' },
   { id: '7', label: 'Option 7' },
-  // Ajoutez autant d'options que nécessaire
+  { id: '8', label: 'Option 8' },
+  { id: '9', label: 'Option 9' },
+  { id: '10', label: 'Option 10' },
 ];
 
 function CustomSelect() {
@@ -77,25 +79,38 @@ function CustomSelect() {
       <div className="flex justify-between items-center mb-4">
         <div>
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded mr-2"
+            className="bg-sky-500 text-white px-4 py-2 rounded mr-2"
             onClick={handleSelectAll}
           >
-            Sélectionner tout
+            Select All
+          </button>
+          <button
+            className="bg-orange-400 text-white px-4 py-2 rounded mr-2"
+            onClick={handleMoveUp}
+          >
+            Top
+          </button>
+          <button
+            className="bg-slate-900 text-white px-4 py-2 rounded mr-2"
+            onClick={handleMoveDown}
+          >
+            Botton
           </button>
           <button
             className="bg-red-500 text-white px-4 py-2 rounded"
             onClick={handleUnselectAll}
           >
-            Désélectionner tout
+            Unselect All
           </button>
         </div>
         <button
           className="bg-indigo-500 text-white px-4 py-2 rounded"
           onClick={handleLogResult}
         >
-          Afficher dans la console
+          Console
         </button>
       </div>
+      <div className='border-2 border-slate-500 rounded-md px-2 py-2'>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="options">
           {(provided) => (
@@ -111,28 +126,14 @@ function CustomSelect() {
                   {(provided) => (
                     <li
                       ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
                       className={`bg-white p-4 rounded shadow flex justify-between items-center ${
                         option.selected ? 'bg-blue-200' : ''
                       }`}
                       onClick={() => handleToggleSelection(option.id)}
                     >
                       <span>{option.label}</span>
-                      <div>
-                        <button
-                          className="bg-green-500 text-white px-2 py-1 rounded mr-1"
-                          onClick={handleMoveUp}
-                        >
-                          Haut
-                        </button>
-                        <button
-                          className="bg-yellow-500 text-white px-2 py-1 rounded"
-                          onClick={handleMoveDown}
-                        >
-                          Bas
-                        </button>
-                      </div>
                     </li>
                   )}
                 </Draggable>
@@ -142,6 +143,7 @@ function CustomSelect() {
           )}
         </Droppable>
       </DragDropContext>
+      </div>
     </div>
   );
 }
