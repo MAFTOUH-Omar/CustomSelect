@@ -131,7 +131,7 @@ function CustomSelect() {
                       className={`bg-white p-4 rounded shadow flex justify-between items-center ${
                         option.selected ? 'bg-blue-300' : 'bg-white'
                       }`}
-                      style={option.selected ? '#93c5fd' : 'white'}
+                      style={{ backgroundColor: option.selected ? '#7dd3fc' : 'white' }}
                       onClick={() => handleToggleSelection(option.id)}
                     >
                       <span>{option.label}</span>
