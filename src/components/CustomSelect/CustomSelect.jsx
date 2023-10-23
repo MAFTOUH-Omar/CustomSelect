@@ -126,11 +126,12 @@ function CustomSelect() {
                   {(provided) => (
                     <li
                       ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={{ backgroundColor: option.selected ? '#7dd3fc' : 'white' }}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      className={`bg-white p-4 rounded shadow flex justify-between items-center ${
+                        option.selected ? 'bg-blue-300' : 'bg-white'
+                      }`}
                       onClick={() => handleToggleSelection(option.id)}
-                      className='py-3 rounded-md px-3 border-2 '
                     >
                       <span>{option.label}</span>
                     </li>
